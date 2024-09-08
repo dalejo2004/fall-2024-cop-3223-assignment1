@@ -1,9 +1,10 @@
-/******************************************************************************
-
-                            
-
-*******************************************************************************/
-
+//********************************************************
+// fracturing.c
+// Author: Daniel Primiciero
+// Date: 9/3/2024
+// Class: COP 3223, Professor Parra
+// Purpose: This program helps calculates the different measurements that ask a user to help get detailed description of a circle.
+// //********************************************************
 #include <stdio.h>
 #include <math.h>
 #define PI 3.14159
@@ -14,15 +15,15 @@ double calculateArea();
 double calculateWidth();
 double calculateHeight();
 //********************************************************
-// 
+// int main (int argc, char **argv)
 //
-// 
-// 
-// 
-// 
+// Purpose:         Joining all the functions together
+// Input:           All the functions that are being used throughout the code
+// Output:          Calls back all the functions to make the whole program work 
 //********************************************************
 int main(int argc, char **argv) 
 { 
+//Recall all the functions in the order you set up the functions in
     calculateDistance();
     calculatePerimeter();
     calculateArea();
@@ -31,106 +32,102 @@ int main(int argc, char **argv)
     return 0;
 }
 //********************************************************
-// 
+// double calculateDistance ()
 //
-// 
-// 
-// 
-// 
+// Purpose: Helps become the starter function and stores the values for the rest of the functions to be able to calculate     
+// Input: X and Y values         
+// Output: Values calculated by the distance formula provided 
 //********************************************************
 double calculateDistance() 
 {
-double x1, y1;
+//Set up the X values for the user to input
+double x1, x2;
 
-    printf("Enter x and y Values for Point #1: \n");
-    printf("x: ");
+    printf("Enter your X values \n");
+    printf("x1: ");
     scanf("%lf", &x1);
-    printf("y: ");
-    scanf("%lf", &y1);
-    
-double x2, y2;
-
-    printf("Enter x and y Values for Point #2: \n");
-    printf("x: ");
+    printf("x2: ");
     scanf("%lf", &x2);
-    printf("y: ");
-    scanf("%lf", &y2);
     
+double y1, y2;
+//Set up the Y values for the user to input 
+    printf("Enter your Y Values \n");
+    printf("y1: ");
+    scanf("%lf", &y1);
+    printf("y2: ");
+    scanf("%lf", &y2);
+//Add the distance formula for a circle onto here 
 double distance = sqrt(pow(x2-x1,1)+pow(y2-y1,1));
-
-    printf("The total distance between the two points is: %.2lf\n", distance );
+//Print the message where the distance/result value would show 
+    printf("The distance between the two points is %.3lf\n", distance );
     
     return distance;
 }
 //********************************************************
-// 
+// double calculatePerimeter ()
 //
-// 
-// 
-// 
-// 
+// Purpose: Helps calculate the perimeter, or in other words, the diameter to find the circle 
+// Input: X and Y Values 
+// Output: Result of the calculated perimeter        
 //********************************************************
 double calculatePerimeter() 
 {
-    
+// Recall the distance to add the input for the values without repeating it multiple times   
 double distance = calculateDistance();
+// Add the equation here to do the calculation
 double perimeter = PI*distance;
-
-    printf("The perimeter of the city encompassed by your request is: %.2lf\n", perimeter);
+//Print statement to introduce the value calculated 
+    printf("The perimeter of the city encompassed by your request is %.3lf\n", perimeter);
     
     return 4.0;
 }
 //********************************************************
-// 
+// double calculateArea ()
 //
-// 
-// 
-// 
-// 
+// Purpose:   Sets up the calculation for the values input
+// Input:     X and Y values 
+// Output:    Print Statement with the value for the area at the end of it calculated
+// Postcondition:   None.
 //********************************************************
 double calculateArea() 
 {
-    
+//Recall the distance formula for the input values once again
 double distance = calculateDistance();
-double area = PI*pow(distance,2);
-    printf("The area of the city encompassed by your request is: %.2lf\n", area);
+//Set up the equation to calculate the value 
+double area = PI*pow(distance/2,2);
+//Print the statement that states the calculated area
+    printf("The area of the city encompassed by your request is %.3lf\n", area);
     
     return 2.0;
 }
 //********************************************************
-// 
+// double calculateWidth ()
 //
-// 
-// 
-// 
-// 
+// Purpose: Helps print out the users needed measurement of the width of the circle
+// Input: X and Y Values of the two points       
+// Output: Calculated Width value with the print statement, which is the same as the distance
 //********************************************************
 double calculateWidth()
 {
-    
+// Recall the distance value for the equation to calculate the x and y values the same way     
 double width = calculateDistance();
-
-    printf("The width of the city encompassed by your request is: %.2lf\n", width);
+//Print the statement for the calculated to return it
+    printf("The width of the city encompassed by your request is %.3lf\n", width);
     
     return 3.0;
 }
 //********************************************************
-// 
+// double calculateHeight ()
 //
-// 
-// 
-// 
-// 
+// Purpose: Helps print out the user needed measurement of the height of the circle 
+// Input: X and Y values of the two points         
+// Output: Calculated Height value along the printed statement
 //********************************************************
 double calculateHeight()
 {
 double height = calculateDistance();
 
-    printf("The heigh of the city encompassed by your request is: %.2lf\n", height);
+    printf("The height of the city encompassed by your request is %.3lf\n", height);
     
     return 3.0;
 }
-
-
-
-
