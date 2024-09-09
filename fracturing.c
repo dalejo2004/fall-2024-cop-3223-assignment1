@@ -9,6 +9,7 @@
 #include <math.h>
 #define PI 3.14159
 
+double calculateDistancehelper();
 double calculateDistance();
 double calculatePerimeter();
 double calculateArea();
@@ -32,13 +33,13 @@ int main(int argc, char **argv)
     return 0;
 }
 //********************************************************
-// double calculateDistance ()
+// double calculateDistancehelper ()
 //
 // Purpose: Helps become the starter function and stores the values for the rest of the functions to be able to calculate     
 // Input: X and Y values         
 // Output: Values calculated by the distance formula provided 
 //********************************************************
-double calculateDistance() 
+double calculateDistancehelper() 
 {
 //Set up the X values for the user to input
 double x1, x2;
@@ -57,7 +58,21 @@ double y1, y2;
     printf("y2: ");
     scanf("%lf", &y2);
 //Add the distance formula for a circle onto here 
-double distance = sqrt(pow(x2-x1,1)+pow(y2-y1,1));
+double distance = sqrt(pow(x2-x1,1)+pow(y2-y1,1)); 
+
+return distance;
+}
+//********************************************************
+// double calculateDistance ()
+//
+// Purpose: Recalls the helper function to calculate distance    
+// Input: X and Y values         
+// Output: Values calculated by the distance formula provided 
+//********************************************************
+double calculateDistance() 
+{
+//Recall the helper function
+double distance = calculateDistancehelper();
 //Print the message where the distance/result value would show 
     printf("The distance between the two points is %.3lf\n", distance );
     
@@ -73,7 +88,7 @@ double distance = sqrt(pow(x2-x1,1)+pow(y2-y1,1));
 double calculatePerimeter() 
 {
 // Recall the distance to add the input for the values without repeating it multiple times   
-double distance = calculateDistance();
+double distance = calculateDistancehelper();
 // Add the equation here to do the calculation
 double perimeter = PI*distance;
 //Print statement to introduce the value calculated 
@@ -92,7 +107,7 @@ double perimeter = PI*distance;
 double calculateArea() 
 {
 //Recall the distance formula for the input values once again
-double distance = calculateDistance();
+double distance = calculateDistancehelper();
 //Set up the equation to calculate the value 
 double area = PI*pow(distance/2,2);
 //Print the statement that states the calculated area
@@ -110,7 +125,7 @@ double area = PI*pow(distance/2,2);
 double calculateWidth()
 {
 // Recall the distance value for the equation to calculate the x and y values the same way     
-double width = calculateDistance();
+double width = calculateDistancehelper();
 //Print the statement for the calculated to return it
     printf("The width of the city encompassed by your request is %.3lf\n", width);
     
@@ -125,7 +140,7 @@ double width = calculateDistance();
 //********************************************************
 double calculateHeight()
 {
-double height = calculateDistance();
+double height = calculateDistancehelper();
 
     printf("The height of the city encompassed by your request is %.3lf\n", height);
     
